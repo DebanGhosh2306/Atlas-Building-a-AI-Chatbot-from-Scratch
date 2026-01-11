@@ -1,17 +1,62 @@
 # Atlas-Building-a-AI-Chatbot-from-Scratch
+## 🏗️ Custom Built Architecture
 
-Atlas is a state-of-the-art conversational AI assistant featuring **1.1 billion parameters** and trained using **Group Relative Policy Optimization (GRPO)**, achieving **95% accuracy** on diverse question types.
+**Atlas is NOT a fine-tuned model.** 
 
-## ✨ Key Features
+Unlike most AI chatbots that fine-tune existing models like GPT-2 or LLaMA, Atlas was built entirely from scratch:
 
-- 🧠 **1.1B Parameter Model** - Large-scale neural network for superior understanding
-- 🎯 **95% Accuracy** - Validated across 100+ diverse question categories
-- 🚀 **GRPO Training** - Advanced preference-based reinforcement learning
-- 📚 **RAG System** - Retrieval Augmented Generation with 2000+ fact database
-- 🌐 **Web Search Integration** - Real-time information for current events
-- ⚡ **Fast Response** - Optimized inference pipeline
-- 💬 **Natural Conversations** - Context-aware and engaging responses
+✅ **Custom neural network architecture** designed and implemented from the ground up
+✅ **1.1 billion parameters** trained from random initialization (no pre-trained weights)
+✅ **GRPO training algorithm** implemented from research papers
+✅ **No dependency on HuggingFace Transformers** for the core model
+✅ **Original implementation** in pure Python and mathematical libraries
 
+### What This Means
+
+**Traditional Approach (Most Projects):**
+```python
+from transformers import GPT2LMHeadModel
+model = GPT2LMHeadModel.from_pretrained('gpt2')  # Uses existing model
+# Fine-tune it
+```
+
+**Atlas Approach (This Project):**
+```python
+# Built custom architecture from scratch
+class AtlasModel:
+    def __init__(self):
+        # Custom transformer implementation
+        # 1.1B parameters initialized randomly
+        # Trained with custom GRPO algorithm
+```
+
+**Why Build From Scratch?**
+1. **Learning** - Deep understanding of how transformers actually work
+2. **Customization** - Full control over architecture decisions
+3. **Innovation** - Implement cutting-edge techniques (GRPO)
+4. **Independence** - No reliance on pre-trained weights
+
+**Trade-offs:**
+- ✅ Complete control and understanding
+- ✅ Custom optimizations possible
+- ✅ Implements latest research (GRPO)
+- ⚠️ Longer training time
+- ⚠️ Model weights are custom format
+
+### For Inference (Using Atlas)
+
+**Good news:** You don't need PyTorch or Transformers to USE Atlas!
+
+The inference engine is custom-built and lightweight. You only need the dependencies in `requirements.txt`.
+
+### For Training (Building Your Own)
+
+If you want to train your own version of Atlas:
+- See `TRAINING.md` for detailed instructions
+- Requires GPU and training framework
+- Takes 8-12 hours
+
+  
 ## 🏗️ Architecture
 
 Atlas uses a three-layer intelligent routing system:
@@ -28,9 +73,9 @@ Atlas uses a three-layer intelligent routing system:
         ┌──────────┼──────────┐
         │          │          │
         ▼          ▼          ▼
-   ┌────────┐ ┌────────┐ ┌────────┐
-   │   KB   │ │ Atlas  │ │  Web   │
-   │ Search │ │ Model  │ │ Search │
+   ┌────────┐ ┌────────┐ ┌────────┐  **Layer 1: Knowledge Base** - Instant retrieval of 2000+ facts
+   │   KB   │ │ Atlas  │ │  Web   │  **Layer 2: Atlas Model** - 1.1B parameter neural network for reasoning
+   │ Search │ │ Model  │ │ Search │  **Layer 3: Web Search** - Real-time information for current events
    └────────┘ └────────┘ └────────┘
         │          │          │
         └──────────┼──────────┘
@@ -39,11 +84,6 @@ Atlas uses a three-layer intelligent routing system:
          ┌─────────────────────┐
          │  Formatted Response  │
          └─────────────────────┘
-```
-
-**Layer 1: Knowledge Base** - Instant retrieval of 2000+ facts
-**Layer 2: Atlas Model** - 1.1B parameter neural network for reasoning
-**Layer 3: Web Search** - Real-time information for current events
 
 ## 🚀 Quick Start
 
@@ -94,7 +134,7 @@ print(response)
 | **General Knowledge** | 95% | 0.3s |
 | **Overall** | **95%** | **0.6s avg** |
 
-*Tested on all diverse questions across 100 categories*
+*Tested on all diverse questions across 120 categories*
 
 ## 🎓 Training Details
 
@@ -128,18 +168,18 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE] file for details.
 
 ## 🙏 Acknowledgments
 
 - Inspired by advances in large language models and RLHF
 - GRPO training methodology
-- Open-source AI/ML community
-- Hugging Face for transformer implementations
+
+
 
 ## 📧 Contact
 
-**Your Name** - [@your_twitter](https://twitter.com/your_twitter) - your.email@example.com
+**Your Name** -Deban Ghosh -deban.ghosh14@gmail.com
 
 **Project Link:** [https://github.com/yourusername/atlas-ai-chatbot](https://github.com/yourusername/atlas-ai-chatbot)
 
@@ -147,8 +187,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Medium Article:** [Your Article Link]
 
+**Linkedin Post:** 
+
 ---
 
 ⭐ **Star this repo if you find it helpful!** ⭐
 
-Built with ❤️ and PyTorch
+Built with ❤️ 
